@@ -1,10 +1,9 @@
 import requests
 
 
-urls = [r'http://wttr.in/Лондон?nTq&lang=ru',
-        r'http://wttr.in/Шереметьево?nTq&lang=ru',
-        r'http://wttr.in/Череповец?nTq&lang=ru']
+places = ['Лондон', 'Шереметьево', 'Череповец']
 
-for url in urls:
+for place in places:
+    url = r'http://wttr.in/{}?nTq&lang=ru'.format(place)
     response = requests.get(url)
     print(response.text[:-48])
